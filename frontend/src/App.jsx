@@ -1,6 +1,9 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Landing from './components/landing/Landing';
+import Home from './components/landing/Home';
+import Categories from './components/landing/Categories';
+import Products from './components/landing/Products';
+import About from './components/landing/About';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Dashboard from './components/admin/Dashboard';
@@ -16,7 +19,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Vista Pública */}
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 

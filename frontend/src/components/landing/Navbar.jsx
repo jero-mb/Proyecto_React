@@ -1,7 +1,7 @@
-// src/components/landing/Navbar.jsx
 import 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../../assets/logo.png'; // Asegúrate de tener un logo en esta ruta
+import { LinkContainer } from 'react-router-bootstrap';
+import logo from '../../assets/logo.png';
 
 const NavigationBar = () => (
   <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
@@ -19,10 +19,21 @@ const NavigationBar = () => (
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse id="navbar-nav">
         <Nav className="ms-auto">
-          <Nav.Link href="#inicio">Inicio</Nav.Link>
-          <Nav.Link href="#servicios">Servicios</Nav.Link>
-          <Nav.Link href="#contacto">Contacto</Nav.Link>
-          <Nav.Link href="/login">Iniciar Sesión</Nav.Link>
+          <LinkContainer to="/">
+            <Nav.Link>Inicio</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/categories">
+            <Nav.Link>Categorías</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/products">
+            <Nav.Link>Productos</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/about">
+            <Nav.Link>Acerca de</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/login">
+            <Nav.Link>Iniciar Sesión</Nav.Link>
+          </LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Container>

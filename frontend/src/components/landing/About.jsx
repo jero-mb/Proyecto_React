@@ -1,24 +1,22 @@
-// src/components/landing/About.jsx
-import 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import NavigationBar from './Navbar';
+import { Container } from 'react-bootstrap';
 
 const About = () => (
-  <Container className="py-5">
-    <h2>Quiénes Somos</h2>
-    <Row>
-      <Col md={6}>
-        <p>Caninos SABS nace en 2020 con el propósito de brindar productos y servicios de alta calidad para el cuidado de las mascotas.</p>
-      </Col>
-      <Col md={6}>
-        <Card>
-          <Card.Body>
-            <Card.Title>Misión</Card.Title>
-            <Card.Text>Proveer soluciones innovadoras y confiables para la salud y bienestar animal.</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
-  </Container>
+  <>
+    <NavigationBar />
+    <Container className="my-5 pt-5">
+      <h2 className="mb-4 text-center">Acerca de Caninos SABS</h2>
+      <p>
+        Caninos SABS es una empresa dedicada a ofrecer productos y servicios de alta calidad para el cuidado y bienestar de tus mascotas. Nuestro compromiso es brindar soluciones integrales que garanticen la salud, felicidad y comodidad de tus animales de compañía.
+      </p>
+      <p>
+        Contamos con un equipo de profesionales apasionados por los animales, que trabajan constantemente para innovar y mejorar nuestra oferta, asegurando la satisfacción de nuestros clientes y el bienestar de sus mascotas.
+      </p>
+      <p>
+        Gracias por confiar en Caninos SABS. Estamos aquí para ayudarte a cuidar lo que más amas.
+      </p>
+    </Container>
+  </>
 );
 
 export default About;

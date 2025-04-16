@@ -1,29 +1,32 @@
-// src/components/landing/Categories.jsx
-import { useEffect, useState } from 'react';
-import { Container, ListGroup, Spinner } from 'react-bootstrap';
-import api from '../../api/axios';
+import NavigationBar from './Navbar';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
-const Categories = () => {
-  const [cats, setCats] = useState([]);
-  const [loading, setLoading] = useState(true);
+const categories = [
+  { id: 1, name: 'Alimentos', description: 'Comida nutritiva y balanceada para tus mascotas.' },
+  { id: 2, name: 'Juguetes', description: 'Diversión garantizada con nuestros juguetes seguros.' },
+  { id: 3, name: 'Accesorios', description: 'Collares, correas y más para el estilo de tu mascota.' },
+  { id: 4, name: 'Salud', description: 'Productos para el cuidado y bienestar de tus mascotas.' },
+];
 
-  useEffect(() => {
-    api.get('/categories')
-      .then(res => setCats(res.data))
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <Spinner animation="border" className="d-block mx-auto my-5" />;
-
-  return (
-    <Container className="py-5">
-      <h2>Categorías</h2>
-      <ListGroup>
-        {cats.map(c => <ListGroup.Item key={c.id}>{c.name}</ListGroup.Item>)}
-      </ListGroup>
+const Categories = () => (
+  <>
+    <NavigationBar />
+    <Container className="my-5 pt-5">
+      <h2 className="mb-4 text-center">Categorías de Productos</h2>
+      <Row>
+        {categories.map(category => (
+          <Col key={category.id} md={6} lg={3} className="mb-4">
+            <Card className="h-100 shadow-sm">
+              <Card.Body>
+                <Card.Title>{category.name}</Card.Title>
+                <Card.Text>{category.description}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </Container>
-  );
-};
+  </>
+);
 
 export default Categories;
